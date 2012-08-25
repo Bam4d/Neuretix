@@ -30,16 +30,6 @@ ClusterMapLink::ClusterMapLink(uuid_t dest, uuid_t src, string uuid_str) {
 
 }
 
-void ClusterMapLink::Cross(void* link)
-{
-
-}
-
-void ClusterMapLink::Mutate()
-{
-
-}
-
 int ClusterMapLink::Save(string directory)
 {
     char uuid_s[36];

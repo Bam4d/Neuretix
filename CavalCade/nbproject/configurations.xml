@@ -4,17 +4,18 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>/home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/CNNGlobals.h</itemPath>
-      <itemPath>/home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/CavalcadeMind.h</itemPath>
-      <itemPath>/home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/ControlTimer.h</itemPath>
-      <itemPath>/home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/SaveLoadCNN.h</itemPath>
+      <itemPath>CNNGlobals.h</itemPath>
+      <itemPath>CavalcadeMind.h</itemPath>
+      <itemPath>ControlTimer.h</itemPath>
+      <itemPath>LeakyIntegrator.h</itemPath>
+      <itemPath>SaveLoadCNN.h</itemPath>
       <itemPath>TemporalWindow.h</itemPath>
       <itemPath>TimePoint.h</itemPath>
-      <itemPath>/home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/axon.h</itemPath>
-      <itemPath>/home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/axonList.h</itemPath>
+      <itemPath>axon.h</itemPath>
+      <itemPath>axonList.h</itemPath>
       <itemPath>axon_event.h</itemPath>
-      <itemPath>/home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/group.h</itemPath>
-      <itemPath>/home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/neuron.h</itemPath>
+      <itemPath>group.h</itemPath>
+      <itemPath>neuron.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -23,16 +24,17 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>/home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/CavalcadeMind.cpp</itemPath>
-      <itemPath>/home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/ControlTimer.cpp</itemPath>
-      <itemPath>/home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/SaveLoadCNN.cpp</itemPath>
+      <itemPath>CavalcadeMind.cpp</itemPath>
+      <itemPath>ControlTimer.cpp</itemPath>
+      <itemPath>LeakyIntegrator.cpp</itemPath>
+      <itemPath>SaveLoadCNN.cpp</itemPath>
       <itemPath>TemporalWindow.cpp</itemPath>
       <itemPath>TimePoint.cpp</itemPath>
-      <itemPath>/home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/axon.cpp</itemPath>
-      <itemPath>/home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/axonList.cpp</itemPath>
+      <itemPath>axon.cpp</itemPath>
+      <itemPath>axonList.cpp</itemPath>
       <itemPath>axon_event.cpp</itemPath>
-      <itemPath>/home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/group.cpp</itemPath>
-      <itemPath>/home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/neuron.cpp</itemPath>
+      <itemPath>group.cpp</itemPath>
+      <itemPath>neuron.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"

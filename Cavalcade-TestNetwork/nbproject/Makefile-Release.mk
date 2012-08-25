@@ -35,7 +35,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/OnlineRandomNums.o \
 	${OBJECTDIR}/GLEngine.o \
 	${OBJECTDIR}/CNNControl.o
 
@@ -68,11 +67,6 @@ ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
-
-${OBJECTDIR}/OnlineRandomNums.o: OnlineRandomNums.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/OnlineRandomNums.o OnlineRandomNums.cpp
 
 ${OBJECTDIR}/GLEngine.o: GLEngine.cpp 
 	${MKDIR} -p ${OBJECTDIR}

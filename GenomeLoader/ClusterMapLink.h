@@ -16,9 +16,6 @@ public:
     virtual ~ClusterMapLink();
 
     int Save(string);
-    
-    void Mutate();
-    void Cross(void*);
 
     void Clear();
 

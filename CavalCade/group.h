@@ -5,8 +5,9 @@ using namespace std;
 class group
 {
 public:
-	group(int,int,RGB);
-	group(vector<neuron*>,int,PlotPoint,RGB);
+        group();
+	void Init(int,int,RGB);
+	void Init(vector<neuron*>,int,PlotPoint,RGB);
         
         void SetColour(RGB);
         void Move(PlotPoint);//moves the group from it's current location to a new one

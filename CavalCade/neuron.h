@@ -12,7 +12,7 @@ public:
     void Fire_TW();
 
     void Stimulate(double);
-    void Stimulate_TW(double);
+    virtual void Stimulate_TW(double);
     
     int impulses_recieved;
     int impulses_fired;
@@ -21,12 +21,11 @@ public:
     void IntroduceDemand(double);
     void PropagatedDemand(double magnitude);
     
+    void SetParentMind(CavalcadeMind mind);
+    
     double calcSLevel_TW();
 
     ~neuron(void);
-
-    //neuroplasticity variables (Supply)
-   
 
 
     //neuron firing potential variables
@@ -36,6 +35,7 @@ public:
     int refractory_period; //resting period time
     int refractory_countdown; //counts down the refractory time
     double excitation_level; //current excitation level of neuron
+    LeakyIntegrator ActionPotential;
 
     int ID;
     //graphical output variables
@@ -55,7 +55,7 @@ public:
     double S_peak; //max amplitude at last supply spike
     static neuron* FindNeuronByID(int ID, vector<neuron*>* neuronList);
 
-private:
+protected:
     double excitation_time; //time since last excitation
     double S_excitation_time; //excitation time for Supply level
     double S_TC; //Time constant for decay of Supply potential

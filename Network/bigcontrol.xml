@@ -1,0 +1,25 @@
+<ControlTimerMap>
+<Timeout Time="1" OutputFilename=".\Data\Matlab\TestBIG.mat">
+<RecordNeuron NID="1" GID="19"/>
+<RecordSpike AID="50"/>
+<RecordSpike AID="70"/>
+</Timeout>
+<Timeout Time="30" OutputFilename="">
+<Fires NID="2" GID="7"/>
+</Timeout>
+<Timeout Time="40" OutputFilename="">
+<Fires NID="2" GID="9"/>
+</Timeout>
+<Timeout Time="90" OutputFilename="">
+<Fires NID="2" GID="20"/>
+</Timeout>
+<Timeout Time="26" OutputFilename="">
+<Fires NID="2" GID="26"/>
+</Timeout>
+<Timeout Time="32" OutputFilename="">
+<Fires NID="2" GID="13"/>
+</Timeout>
+<Timeout Time="600" OutputFilename="">
+<Fires NID="2" GID="16"/>
+</Timeout>
+</ControlTimerMap>

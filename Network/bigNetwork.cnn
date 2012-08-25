@@ -1,0 +1,5 @@
+<NetworkFiles>
+	<Cluster Filename="bigcluster.xml" />
+	<Axons Filename="bigaxons.xml" />
+	<Control Filename="bigcontrol.xml" />
+</NetworkFiles>

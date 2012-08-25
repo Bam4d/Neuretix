@@ -87,6 +87,7 @@ public:
 
 #include "axon.h"
 #include "axonList.h"
+#include "LeakyIntegrator.h"
 #include "neuron.h"
 #include "group.h"
 #include "ControlTimer.h"
@@ -95,6 +96,7 @@ public:
 #include "TemporalWindow.h"
 #include "CavalcadeMind.h"
 #include "SaveLoadCNN.h"
+
 
 
 #endif	/* CNNGLOBALS_H */

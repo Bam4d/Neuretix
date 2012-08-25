@@ -34,16 +34,17 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/2018280917/axonList.o \
 	${OBJECTDIR}/TimePoint.o \
-	${OBJECTDIR}/_ext/2018280917/axon.o \
-	${OBJECTDIR}/_ext/2018280917/SaveLoadCNN.o \
-	${OBJECTDIR}/_ext/2018280917/group.o \
+	${OBJECTDIR}/group.o \
 	${OBJECTDIR}/axon_event.o \
-	${OBJECTDIR}/_ext/2018280917/neuron.o \
-	${OBJECTDIR}/_ext/2018280917/ControlTimer.o \
+	${OBJECTDIR}/ControlTimer.o \
+	${OBJECTDIR}/neuron.o \
+	${OBJECTDIR}/axon.o \
 	${OBJECTDIR}/TemporalWindow.o \
-	${OBJECTDIR}/_ext/2018280917/CavalcadeMind.o
+	${OBJECTDIR}/axonList.o \
+	${OBJECTDIR}/CavalcadeMind.o \
+	${OBJECTDIR}/SaveLoadCNN.o \
+	${OBJECTDIR}/LeakyIntegrator.o
 
 
 # C Compiler Flags
@@ -70,55 +71,60 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCavalCade.so: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -shared -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCavalCade.so -fPIC ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
-${OBJECTDIR}/_ext/2018280917/axonList.o: /home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/axonList.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/2018280917
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/2018280917/axonList.o /home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/axonList.cpp
-
 ${OBJECTDIR}/TimePoint.o: TimePoint.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/TimePoint.o TimePoint.cpp
 
-${OBJECTDIR}/_ext/2018280917/axon.o: /home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/axon.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/2018280917
+${OBJECTDIR}/group.o: group.cpp 
+	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/2018280917/axon.o /home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/axon.cpp
-
-${OBJECTDIR}/_ext/2018280917/SaveLoadCNN.o: /home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/SaveLoadCNN.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/2018280917
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/2018280917/SaveLoadCNN.o /home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/SaveLoadCNN.cpp
-
-${OBJECTDIR}/_ext/2018280917/group.o: /home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/group.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/2018280917
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/2018280917/group.o /home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/group.cpp
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/group.o group.cpp
 
 ${OBJECTDIR}/axon_event.o: axon_event.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/axon_event.o axon_event.cpp
 
-${OBJECTDIR}/_ext/2018280917/neuron.o: /home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/neuron.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/2018280917
+${OBJECTDIR}/ControlTimer.o: ControlTimer.cpp 
+	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/2018280917/neuron.o /home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/neuron.cpp
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/ControlTimer.o ControlTimer.cpp
 
-${OBJECTDIR}/_ext/2018280917/ControlTimer.o: /home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/ControlTimer.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/2018280917
+${OBJECTDIR}/neuron.o: neuron.cpp 
+	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/2018280917/ControlTimer.o /home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/ControlTimer.cpp
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/neuron.o neuron.cpp
+
+${OBJECTDIR}/axon.o: axon.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/axon.o axon.cpp
 
 ${OBJECTDIR}/TemporalWindow.o: TemporalWindow.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/TemporalWindow.o TemporalWindow.cpp
 
-${OBJECTDIR}/_ext/2018280917/CavalcadeMind.o: /home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/CavalcadeMind.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/2018280917
+${OBJECTDIR}/axonList.o: axonList.cpp 
+	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/2018280917/CavalcadeMind.o /home/bam4d/NetBeansProjects/Cavalcade-Ubuntu-Glut/CavalCade/CavalcadeMind.cpp
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/axonList.o axonList.cpp
+
+${OBJECTDIR}/CavalcadeMind.o: CavalcadeMind.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/CavalcadeMind.o CavalcadeMind.cpp
+
+${OBJECTDIR}/SaveLoadCNN.o: SaveLoadCNN.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/SaveLoadCNN.o SaveLoadCNN.cpp
+
+${OBJECTDIR}/LeakyIntegrator.o: LeakyIntegrator.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/LeakyIntegrator.o LeakyIntegrator.cpp
 
 # Subprojects
 .build-subprojects:

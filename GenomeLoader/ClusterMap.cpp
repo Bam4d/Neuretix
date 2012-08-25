@@ -21,15 +21,6 @@ ClusterMap::ClusterMap(int dominance, string uuid_str)
     uuid_parse(uuid_str.c_str(),UUID);
 }
 
-void ClusterMap::Mutate()
-{
-
-}
-
-void ClusterMap::Cross(void* object)
-{
-}
-
 int ClusterMap::Save(string directory)
 {
     

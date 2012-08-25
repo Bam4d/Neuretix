@@ -21,7 +21,7 @@ GAEngine::GAEngine() {
 //creates a random cluster in a mind
 group* GAEngine::CreateRandomCluster(int maxNeurons,int id)
 {
-    group* _randomCluster;
+    group* _newGroup = new group();
     int _numNeurons = rand()%maxNeurons+1;
     
 
@@ -30,16 +30,17 @@ group* GAEngine::CreateRandomCluster(int maxNeurons,int id)
     _randCol.g = 0;
     _randCol.b = 0;
 
-    _randomCluster = new group(_numNeurons,0,_randCol);
-    _randomCluster->ID = id;
+    
+    _newGroup->Init(_numNeurons,0,_randCol);
+    _newGroup->ID = id;
     //set random points of the neurons
     for(int n_c = 0;n_c<_numNeurons;n_c++)
     {
-        _randomCluster->Neuron[n_c]->position = PlotPoint((float)(rand()%_numNeurons-_numNeurons/2)/50.0,(float)(rand()%_numNeurons-_numNeurons/2)/50.0,(float)(rand()%_numNeurons-_numNeurons/2)/50.0);
-        _randomCluster->Neuron[n_c]->ID = n_c;
-        _randomCluster->Neuron[n_c]->ParentGroupID = id;
+        _newGroup->Neuron[n_c]->position = PlotPoint((float)(rand()%_numNeurons-_numNeurons/2)/50.0,(float)(rand()%_numNeurons-_numNeurons/2)/50.0,(float)(rand()%_numNeurons-_numNeurons/2)/50.0);
+        _newGroup->Neuron[n_c]->ID = n_c;
+        _newGroup->Neuron[n_c]->ParentGroupID = id;
     }
-    return _randomCluster;
+    return _newGroup;
 }
 
 //creates a set of random axons joining two clusters together
@@ -154,6 +155,7 @@ int GAEngine::AddClusterMapToMind(CavalcadeMind* _mind, ClusterMap* _ClusterMap)
         for(int n_n = 0; n_n<_ClusterMap->clusters[n_c]->Neuron.size(); n_n++)
         {
             _ClusterMap->clusters[n_c]->Neuron[n_n]->ParentMind = _mind;
+            _ClusterMap->clusters[n_c]->Neuron[n_n]->ActionPotential.currentTime = &_mind->CurTime;
             _ClusterMap->clusters[n_c]->Neuron[n_n]->ParentGroupID = _ClusterMap->clusters[n_c]->ID;
         }
 

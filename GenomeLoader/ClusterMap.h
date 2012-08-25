@@ -21,9 +21,6 @@ public:
 
     static ClusterMap* FindClusterMapByUUID(uuid_t,vector<ClusterMap>*);
 
-    void Mutate();
-    void Cross(void*);
-
     void Clear();
     virtual ~ClusterMap();
 private:

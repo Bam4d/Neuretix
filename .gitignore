@@ -5,4 +5,10 @@
 *.dll
 *.exe
 *.o
+*.o.d
+*/dist/*
+*/build/*
 *.so
+/Test-GenerateSOM/nbproject/private/
+/NeuroPlasticity/nbproject/private/
+/Structures/nbproject/private/

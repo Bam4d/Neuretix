@@ -422,7 +422,9 @@ int SaveLoadCNN::GetClusterVec(CMarkup ClusterXml,vector<group*>* Cluster)
         gP.y = atof(ClusterXml.GetAttrib("y").c_str());
         gP.z = atof(ClusterXml.GetAttrib("z").c_str());
 
-        Cluster->push_back(new group(n_temp,clusterID,gP,col));
+        group* _newGroup = new group();
+        _newGroup->Init(n_temp,clusterID,gP,col);
+        Cluster->push_back(_newGroup);
     }
 
     return Cluster->size();

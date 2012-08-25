@@ -1,6 +1,10 @@
 #include "CNNGlobals.h"
 
-group::group(int numNeu, int id,RGB basecol)
+group::group() {
+    
+}
+
+void group::Init(int numNeu, int id,RGB basecol)
 {
 	ID = id; //set the ID of this group
 	baseCol = basecol;
@@ -14,7 +18,7 @@ group::group(int numNeu, int id,RGB basecol)
 	}
 }
 
-group::group(vector<neuron*> neurons, int id, PlotPoint pos,RGB basecol)
+void group::Init(vector<neuron*> neurons, int id, PlotPoint pos,RGB basecol)
 {
 	ID = id; //set the ID of this group
 	baseCol = basecol;

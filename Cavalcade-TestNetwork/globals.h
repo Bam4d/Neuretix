@@ -53,9 +53,6 @@ using namespace std;
 #include "GLEngine.h"
 #include "../CavalCade/CNNGlobals.h"
 #include "../GenomeLoader/GenomeLoaderGlobals.h"
-#include <curl/curl.h>
-#include "OnlineRandomNums.h"
-
 
 //void GetRandomNumbers(int number, int dec_places, double * randoms, bool net)
 //{

@@ -1,12 +1,15 @@
 #include "CNNGlobals.h"
+#include "LeakyIntegrator.h"
 
 neuron::neuron()
 {
-    LastFireTimestamp = 0;
+    //LastFireTimestamp = 0;
     S_level = 0;
     S_peak = 0;
     S_TC = DEF_SD_TC;
     ParentMind = NULL;
+    
+    ActionPotential = LeakyIntegrator(DEF_EXC_TC,10,DEF_FIRETHRESH);
 }
 
 neuron::neuron(int PID,RGB col)
@@ -23,6 +26,8 @@ neuron::neuron(int PID,RGB col)
     excitation_time = 0;
     LastFireTimestamp = 0;
     LastStimTimestamp = 0;
+    
+    ActionPotential = LeakyIntegrator(DEF_EXC_TC,10,DEF_FIRETHRESH);
 
     //S initialisation
     S_TC = DEF_SD_TC;
@@ -51,6 +56,8 @@ neuron::neuron(int PID, PlotPoint neuPos, double firethresh, double epsilon, dou
 
     LastFireTimestamp = 0;
     LastStimTimestamp = 0;
+    
+    ActionPotential = LeakyIntegrator(DEF_EXC_TC,10,DEF_FIRETHRESH);
 
     impulses_recieved = 0;
     impulses_fired = 0;
@@ -72,20 +79,13 @@ void neuron::Stimulate_TW(double amplitude)
 {
     //**DELETE AFTER OXFORD INTERVIEW**//
     if(ParentMind->_t_Window == NULL) Stimulate(amplitude);
-
-    //if we are out of the refractory period....
-    if((ParentMind->CurTime-LastFireTimestamp)>refractory_period)
+    
+    if(ActionPotential.Stimulate(amplitude))
     {
         refractory_countdown = 0;
-        excitation_level = amplitude_peak*exp(-(double)((int)(ParentMind->CurTime-LastStimTimestamp))/exc_TC); //calculate the excitation level
-        amplitude_peak = excitation_level + amplitude; //add the stimulated response onto the potential
-        excitation_level = amplitude_peak; //set the excitation level of the neuron after the fire
-
-        if(amplitude_peak>fire_threshold)
-            Fire_TW();
-
-        LastStimTimestamp = ParentMind->CurTime;
+        Fire_TW();
     }
+        
 
     impulses_recieved++;
 }
@@ -95,14 +95,12 @@ void neuron::Fire_TW()
     for(int x=0;x<outgoingAxons.size();x++)
         outgoingAxons[x]->AcceptFire();
 
-    amplitude_peak = 0;
-    refractory_countdown = refractory_period;
-    impulses_fired++;
+    refractory_countdown = refractory_period; //only here to make visualisation cool
     
     S_peak = S_level + DEF_SD_MAG; //add the spike to the current SDPD excitation level
     S_level = S_peak;
     
-     LastFireTimestamp = ParentMind->CurTime;
+    ActionPotential.Reset();
     
 }
 
@@ -186,8 +184,8 @@ neuron* neuron::FindNeuronByID(int ID, vector<neuron*>* neuronList) //returns a 
 
 double neuron::calcSLevel_TW()
 {
-    if(ParentMind!=NULL) S_level = S_peak*exp(-(double)((int)(ParentMind->CurTime-LastFireTimestamp))/S_TC);
-    else S_level = S_peak;
+//    if(ParentMind!=NULL) S_level = S_peak*exp(-(double)((int)(ParentMind->CurTime-LastFireTimestamp))/S_TC);
+//    else S_level = S_peak;
     return S_level;
 }
 
