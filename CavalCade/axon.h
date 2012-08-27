@@ -21,6 +21,8 @@ public:
         void Fire_TW(); //fires the neuron after it's synaptic delay in TW mode
 	axon* next;
 	int ID; // axon ID
+    
+        
 
         TemporalWindow *_TW;
 
@@ -31,7 +33,6 @@ public:
         //vector<axon*>* axonProcessor; //point to a vector of axon pointers in the parent CavalcadeMind ... used to only update axons that are currently firing
         bool tofire;
 private:
-
         void __join(neuron* sourceNeuron);
 	
 

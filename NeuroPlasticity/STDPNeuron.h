@@ -18,9 +18,10 @@ public:
    void Stimulate_TW(double);
     
     virtual ~STDPNeuron();
-private:
-    
-    float tiredness; //"tiredness" of the neuron so it will not react as quickly if it is constantly excited
+    private:
+        
+        LeakyIntegrator fatigue;
+
 
 };
 

@@ -33,7 +33,7 @@ public:
     double fire_threshold; //threshold for firing the neuron
     double exc_TC; //excitability epsilon
     int refractory_period; //resting period time
-    int refractory_countdown; //counts down the refractory time
+    int refractory_countdown; //counts down the refractory time for animations
     double excitation_level; //current excitation level of neuron
     LeakyIntegrator ActionPotential;
 

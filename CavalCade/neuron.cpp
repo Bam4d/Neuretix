@@ -82,7 +82,6 @@ void neuron::Stimulate_TW(double amplitude)
     
     if(ActionPotential.Stimulate(amplitude))
     {
-        refractory_countdown = 0;
         Fire_TW();
     }
         

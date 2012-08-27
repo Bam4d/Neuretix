@@ -228,20 +228,18 @@ void RenderNeuralNet()
             for(int n_c = 0; n_c<CNN->Cluster[l_c]->Neuron.size(); n_c++)
             {
                 if(CNN->Cluster[l_c]->Neuron[n_c]->refractory_countdown>0)
+                {
                     NeuralNetOutput.DrawCube(CNN->Cluster[l_c]->Neuron[n_c]->position.x,CNN->Cluster[l_c]->Neuron[n_c]->position.y,CNN->Cluster[l_c]->Neuron[n_c]->position.z,0.1f,1.0f,1.0f,1.0f);
+                    //if the neuron is in TW mode, can use the refactory countdown here to animate
+                    if(CNN->Cluster[l_c]->Neuron[n_c]->ParentMind->_t_Window != NULL)
+                    CNN->Cluster[l_c]->Neuron[n_c]->refractory_countdown=0;
+                }
+                
                 else
                 {
                     NeuralNetOutput.DrawCube(CNN->Cluster[l_c]->Neuron[n_c]->position.x,CNN->Cluster[l_c]->Neuron[n_c]->position.y,CNN->Cluster[l_c]->Neuron[n_c]->position.z,0.1f,CNN->Cluster[l_c]->Neuron[n_c]->neuCol.r,CNN->Cluster[l_c]->Neuron[n_c]->neuCol.g,CNN->Cluster[l_c]->Neuron[n_c]->neuCol.b);
                 }
-                        /*
-                for(int x = 1; x<2000; x++)
-                {
-                        Screen.PlotLine((float)x/250.0f+10*l_c,PlotPoints[datacount][x]+n_c*1.5f,(float)(x-1)/250.0f+10*l_c,PlotPoints[datacount][x-1]+n_c*1.5f,0,0,1.0f,0,0);
-                        Screen.PlotLine((float)x/250.0f+10*l_c,PlotPoints[datacount+1][x]+n_c*1.5f,(float)(x-1)/250.0f+10*l_c,PlotPoints[datacount+1][x-1]+n_c*1.5f,0,0,0,1.0f,0);
-                        Screen.PlotLine((float)x/250.0f+10*l_c,PlotPoints[datacount+2][x]+n_c*1.5f,(float)(x-1)/250.0f+10*l_c,PlotPoints[datacount+2][x-1]+n_c*1.5f,0,0,0,0,1.0f);
-                }
-                datacount+=3;
-*/
+               
             }
 
         }
@@ -278,6 +276,7 @@ void RenderNeuralNet()
                             NeuralNetOutput.DrawLine(nsourcepos.x,nsourcepos.y,nsourcepos.z,ndestpos.x,ndestpos.y,ndestpos.z,0,1.0f,0);
                         else
                             NeuralNetOutput.DrawLine(nsourcepos.x,nsourcepos.y,nsourcepos.z,ndestpos.x,ndestpos.y,ndestpos.z,1.0f,0,0);
+                        
                     }
                     else
                     {

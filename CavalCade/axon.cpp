@@ -67,6 +67,7 @@ void axon::MoveCtrlPoints()
 	ctrlpoints[3][0] = destination->position.x;
 	ctrlpoints[3][1] = destination->position.y;
 	ctrlpoints[3][2] = destination->position.z;
+
 }
 
 axon::axon(neuron * sourceNeuron, void (*destfunction)()) //when a neuron fires, it runs the function defined
@@ -93,6 +94,7 @@ void axon::AcceptFire() //neuron has fired so axon needs to process this fire
         synaptic_delay_counter = synaptic_delay;
         tofire = true; //need to count down synaptic delay in AxonUpdate function
     }
+
 }
 
 void axon::Fire_TW()
@@ -119,6 +121,8 @@ void axon::UpdateAxon()
 		}
 		else
 			synaptic_delay_counter -= 1;
+    
+    
 }
 
 
