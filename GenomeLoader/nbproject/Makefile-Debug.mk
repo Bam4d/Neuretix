@@ -22,6 +22,7 @@ AS=as
 
 # Macros
 CND_PLATFORM=GNU-Linux-x86
+CND_DLIB_EXT=so
 CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -54,35 +55,35 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=`pkg-config --libs uuid`  
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libGenomeLoader.so
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libGenomeLoader.${CND_DLIB_EXT}
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libGenomeLoader.so: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libGenomeLoader.${CND_DLIB_EXT}: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -shared -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libGenomeLoader.so -fPIC ${OBJECTFILES} ${LDLIBSOPTIONS} 
+	${LINK.cc} -shared -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libGenomeLoader.${CND_DLIB_EXT} -fPIC ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
 ${OBJECTDIR}/ClusterMap.o: ClusterMap.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/ClusterMap.o ClusterMap.cpp
+	$(COMPILE.cc) -g `pkg-config --cflags uuid`    -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/ClusterMap.o ClusterMap.cpp
 
 ${OBJECTDIR}/GAEngine.o: GAEngine.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/GAEngine.o GAEngine.cpp
+	$(COMPILE.cc) -g `pkg-config --cflags uuid`    -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/GAEngine.o GAEngine.cpp
 
 ${OBJECTDIR}/ClusterMapLink.o: ClusterMapLink.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/ClusterMapLink.o ClusterMapLink.cpp
+	$(COMPILE.cc) -g `pkg-config --cflags uuid`    -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/ClusterMapLink.o ClusterMapLink.cpp
 
 ${OBJECTDIR}/Genome.o: Genome.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/Genome.o Genome.cpp
+	$(COMPILE.cc) -g `pkg-config --cflags uuid`    -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/Genome.o Genome.cpp
 
 # Subprojects
 .build-subprojects:
@@ -90,7 +91,7 @@ ${OBJECTDIR}/Genome.o: Genome.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libGenomeLoader.so
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libGenomeLoader.${CND_DLIB_EXT}
 
 # Subprojects
 .clean-subprojects:

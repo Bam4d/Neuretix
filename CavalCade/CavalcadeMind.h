@@ -26,6 +26,7 @@ public:
     pthread_mutex_t TWmutex; //mutex for stopping TW iterations from corrupting with async input
     pthread_mutex_t SyncMutex; //mutex for stopping Sync iteration from corrupting with async input
 
+    int StartMindThread_TW(int,bool,void (_cdecl)(CavalcadeMind*));
     int StartMindThread_TW(int,bool);
     int StopMindThread_TW();
 
@@ -44,12 +45,13 @@ public:
     int Timer;
 
     pthread_t mindProcessor;
-    TemporalWindow *_t_Window;
+    CyclicCache *_t_Window;
 
     long unsigned int CurTime;
 
 private:
-    
+    //called on every cycle if not null
+    void  (*_cycleCallback)(CavalcadeMind*);
     char databuf[255]; //buffer to store data in before written to file
     axon * axon2Update;
     

@@ -11,7 +11,7 @@ public:
         void Empty(); //clears the linked list and deallocates memory
 	void Clear(); //clears the linked list
 	bool Delete(); //deletes item from end of list
-        void SetTW(TemporalWindow *); //sets the temporal window pointer in ever axon in this list;
+        void SetTW(CyclicCache *); //sets the temporal window pointer in ever axon in this list;
 
         static void Join(axonList* Host, axonList* toAdd); //joins two axonLists
 

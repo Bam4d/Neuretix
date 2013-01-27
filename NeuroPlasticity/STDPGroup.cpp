@@ -25,6 +25,14 @@ void STDPGroup::Init(int numNeu, int id, RGB basecol) {
     
 }
 
+void STDPGroup::ResetChannels()
+{
+    for (int neuron_counter = 0; neuron_counter<Neuron.size(); neuron_counter++)
+	{
+            ((STDPNeuron*)Neuron[neuron_counter])->ResetChannels();
+	}
+}
+
 STDPGroup::STDPGroup(const STDPGroup& orig) {
 }
 

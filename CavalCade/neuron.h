@@ -25,7 +25,7 @@ public:
     
     double calcSLevel_TW();
 
-    ~neuron(void);
+    virtual ~neuron(void);
 
 
     //neuron firing potential variables

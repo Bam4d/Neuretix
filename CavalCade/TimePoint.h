@@ -8,27 +8,18 @@
 #ifndef TIMEPOINT_H
 #define	TIMEPOINT_H
 
-class TimePoint
+class TimePoint : public CyclicCacheTimePoint
 {
 public:
 
-    axon_event* axon_eventLLHead;
-    
-    axon_event* next_axon_event;
-    
-    int num_axonsToFire;
-
     TimePoint();
-    
 
     void Add(axon* _toAdd);
-
-    bool Delete();
 
     ~TimePoint();
     
 private:
-    int _maxEvents;
+
 
 };
 

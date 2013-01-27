@@ -85,17 +85,18 @@ CavalcadeMind::CavalcadeMind() {
     TWmutex = PTHREAD_MUTEX_INITIALIZER;
     mindProcessor = 0;
     _t_Window = NULL;
-    CurTime = 0;
+    
+    //dont wnat to set this as 0!!!
+    CurTime = 1000;
 
 }
 
 void CavalcadeMind::iterate_TW()
 { //TW method for updating system, TW = Temporal Window
-    TimePoint* _curTimePoint = &_t_Window->Window[_t_Window->CurrentPoint];
 
     int num_firedaxons = 0;
-    axon_event* fire = _curTimePoint->axon_eventLLHead;
-    while(_curTimePoint->num_axonsToFire>num_firedaxons)
+    axon_event* fire = (axon_event*)_t_Window->CurrentTimePoint->eventLLHead;
+    while(_t_Window->CurrentTimePoint->num_events>num_firedaxons)
     {
         fire->fireThis->Fire_TW();
         //////////////////////// record the spike
@@ -105,20 +106,16 @@ void CavalcadeMind::iterate_TW()
 //             (*SimulationController[0].DataOut) << databuf;
 //        }
         /////////////////////////
-        fire = fire->next;
+        fire = (axon_event*)fire->next;
         num_firedaxons++;
     }
     
-    _curTimePoint->num_axonsToFire = 0; //reset the amount of axons in this time point to 0;
-    _curTimePoint->next_axon_event = _curTimePoint->axon_eventLLHead;
-    _t_Window->CurrentPoint++;
-    if(_t_Window->CurrentPoint>_t_Window->MaxPoints-1)
-        _t_Window->CurrentPoint = 0;
+   _t_Window->Cycle();
 
 //    for(int l_c = 0; l_c<Cluster.size(); l_c++) //update all the groups of neurons
 //            Cluster[l_c]->UpdateGroup();
 
-
+    if(_cycleCallback!=NULL) _cycleCallback(this);
     CurTime++; //iterate the millisecond counter
 
 }
@@ -185,13 +182,19 @@ int CavalcadeMind::StartMindThread(int netTimer, bool render)
     pthread_setaffinity_np(mindProcessor,CPU_COUNT(&affinitySet),&affinitySet);
 }
 
+int CavalcadeMind::StartMindThread_TW(int netTimer, bool render, void (*cycleCallback)(CavalcadeMind*))
+{
+    _cycleCallback = cycleCallback;
+    StartMindThread_TW(netTimer,render);
+}
+
 int CavalcadeMind::StartMindThread_TW(int netTimer, bool render)
 {
     net_timer = netTimer;
     RunNetwork = true;
     if(render) RenderGraphics = true;
 
-    _t_Window = new TemporalWindow(20); //generate a 20ms temporal window
+    _t_Window = new CyclicCache(20,20); //generate a 20ms temporal window
     Axons.SetTW(_t_Window); //set the temporal window of this mind's axonlist to the one just created
 
     //only let the mind threads run on the first 6 processors

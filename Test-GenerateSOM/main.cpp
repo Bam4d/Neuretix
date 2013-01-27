@@ -62,8 +62,6 @@ void *QtUI(void *)
     
     app.exec();
 
-    
-
     pthread_exit(NULL);
 }
 
@@ -112,7 +110,7 @@ void SetupSOM()
 {
     Minds.push_back(CavalcadeMind());
     _Genome.ClusterMaps.push_back(ClusterMap());
-    SelfOrganisingMap::SOM2D(&_Genome.ClusterMaps[0],100,100,0.15,0.4);
+    SelfOrganisingMap::SOM2D(&_Genome.ClusterMaps[0],200,200,0.15,0.4);
     
     GAEngine::GenomeToMind(&Minds[0],&_Genome);
     
@@ -132,6 +130,11 @@ void KeyboardNeuralNet(unsigned char key, int x, int y)
         Minds.back().Cluster[0]->Neuron[0]->Fire();
         pthread_mutex_unlock(&Minds[0].TWmutex);
         
+    }
+    
+    if(key=='2')
+    {
+        ((STDPGroup*)Minds.back().Cluster[0])->ResetChannels();
     }
     
     if(key==ESCAPE)
@@ -244,48 +247,48 @@ void RenderNeuralNet()
 
         }
 
-        if(axon2Draw!=NULL)
-        do
-        {
-
-            if(axon2Draw->destination != NULL) //destination will be null if fire goes to external function
-            {
-                PlotPoint nsourcepos = axon2Draw->source->position;
-                PlotPoint ndestpos = axon2Draw->destination->position;
-//                if(axon2Draw->source->ParentGroupID == axon2Draw->destination->ParentGroupID && axon2Draw->destination->ID <= axon2Draw->source->ID)
-//                {
-//                //plot curves
+//        if(axon2Draw!=NULL)
+//        do
+//        {
+//
+//            if(axon2Draw->destination != NULL) //destination will be null if fire goes to external function
+//            {
+//                PlotPoint nsourcepos = axon2Draw->source->position;
+//                PlotPoint ndestpos = axon2Draw->destination->position;
+////                if(axon2Draw->source->ParentGroupID == axon2Draw->destination->ParentGroupID && axon2Draw->destination->ID <= axon2Draw->source->ID)
+////                {
+////                //plot curves
+////                    if(axon2Draw->source->refractory_countdown>0)
+////                    {
+////                        if(axon2Draw->fire_magnitude>0)
+////                            NeuralNetOutput.DrawCurve(&axon2Draw->ctrlpoints[0][0],3,4,0,1.0,0);
+////                        else
+////                            NeuralNetOutput.DrawCurve(&axon2Draw->ctrlpoints[0][0],3,4,1.0f,0,0);
+////
+////                    }
+////                    else
+////                    {
+////                        NeuralNetOutput.DrawCurve(&axon2Draw->ctrlpoints[0][0],3,4,0.3f,0.3f,1.0f);
+////                    }
+////                }
+////                else
 //                    if(axon2Draw->source->refractory_countdown>0)
 //                    {
-//                        if(axon2Draw->fire_magnitude>0)
-//                            NeuralNetOutput.DrawCurve(&axon2Draw->ctrlpoints[0][0],3,4,0,1.0,0);
-//                        else
-//                            NeuralNetOutput.DrawCurve(&axon2Draw->ctrlpoints[0][0],3,4,1.0f,0,0);
 //
+//                        if(axon2Draw->fire_magnitude>0)
+//                            NeuralNetOutput.DrawLine(nsourcepos.x,nsourcepos.y,nsourcepos.z,ndestpos.x,ndestpos.y,ndestpos.z,0,1.0f,0);
+//                        else
+//                            NeuralNetOutput.DrawLine(nsourcepos.x,nsourcepos.y,nsourcepos.z,ndestpos.x,ndestpos.y,ndestpos.z,1.0f,0,0);
+//                        
 //                    }
 //                    else
 //                    {
-//                        NeuralNetOutput.DrawCurve(&axon2Draw->ctrlpoints[0][0],3,4,0.3f,0.3f,1.0f);
+//                        NeuralNetOutput.DrawLine(nsourcepos.x,nsourcepos.y,nsourcepos.z,ndestpos.x,ndestpos.y,ndestpos.z,0.3f,0.3f,1.0f);
 //                    }
 //                }
-//                else
-                    if(axon2Draw->source->refractory_countdown>0)
-                    {
-
-                        if(axon2Draw->fire_magnitude>0)
-                            NeuralNetOutput.DrawLine(nsourcepos.x,nsourcepos.y,nsourcepos.z,ndestpos.x,ndestpos.y,ndestpos.z,0,1.0f,0);
-                        else
-                            NeuralNetOutput.DrawLine(nsourcepos.x,nsourcepos.y,nsourcepos.z,ndestpos.x,ndestpos.y,ndestpos.z,1.0f,0,0);
-                        
-                    }
-                    else
-                    {
-                        NeuralNetOutput.DrawLine(nsourcepos.x,nsourcepos.y,nsourcepos.z,ndestpos.x,ndestpos.y,ndestpos.z,0.3f,0.3f,1.0f);
-                    }
-                }
-                axon2Draw = axon2Draw->next;
-            }
-            while(axon2Draw != NULL);
+//                axon2Draw = axon2Draw->next;
+//            }
+//            while(axon2Draw != NULL);
             
     }
     }

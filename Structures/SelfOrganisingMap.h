@@ -11,7 +11,7 @@
 class SelfOrganisingMap {
 public:
     static void SOM2D(ClusterMap* clusterMap,int dimx,int dimy, float separation, float inhibitoryDistance);
-    static void SOM1D(ClusterMap* clusterMap,int dimx,float separation);
+    static void SOM1D(ClusterMap* clusterMap,int dimx,float separation,float inhibitoryDistance);
 private:
     
     static float CalculateDistance(PlotPoint _a,PlotPoint _b);

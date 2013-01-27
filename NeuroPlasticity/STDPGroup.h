@@ -14,6 +14,8 @@ public:
     
     void Init(int,int,RGB);
     
+    void ResetChannels();
+    
     STDPGroup(const STDPGroup& orig);
     virtual ~STDPGroup();
 private:

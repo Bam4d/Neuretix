@@ -14,7 +14,7 @@ public:
 	void Line(double,PlotPoint,int);//arranges neurons in a line
 	void Circle(double distbetween,PlotPoint center_pos, int xyz);//arranges neurons in a circle
 	vector<neuron*> Neuron; //pointer to neurons
-	~group(void);
+	virtual ~group(void);
 	void UpdateGroup(); //updates the action potentials of neurons in the group
 	int ID; //ID number for group identification
 

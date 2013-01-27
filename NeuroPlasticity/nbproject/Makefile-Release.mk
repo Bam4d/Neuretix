@@ -22,6 +22,7 @@ AS=as
 
 # Macros
 CND_PLATFORM=GNU-Linux-x86
+CND_DLIB_EXT=so
 CND_CONF=Release
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -35,7 +36,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/STDPNeuron.o \
-	${OBJECTDIR}/STDPGroup.o
+	${OBJECTDIR}/SAxon.o \
+	${OBJECTDIR}/PreSynapticCyclicCache.o \
+	${OBJECTDIR}/PreSynapticEvent.o \
+	${OBJECTDIR}/STDPGroup.o \
+	${OBJECTDIR}/PreSynapticTimePoint.o
 
 
 # C Compiler Flags
@@ -56,21 +61,41 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libNeuroPlasticity.so
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libNeuroPlasticity.${CND_DLIB_EXT}
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libNeuroPlasticity.so: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libNeuroPlasticity.${CND_DLIB_EXT}: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -shared -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libNeuroPlasticity.so -fPIC ${OBJECTFILES} ${LDLIBSOPTIONS} 
+	${LINK.cc} -shared -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libNeuroPlasticity.${CND_DLIB_EXT} -fPIC ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
 ${OBJECTDIR}/STDPNeuron.o: STDPNeuron.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/STDPNeuron.o STDPNeuron.cpp
 
+${OBJECTDIR}/SAxon.o: SAxon.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/SAxon.o SAxon.cpp
+
+${OBJECTDIR}/PreSynapticCyclicCache.o: PreSynapticCyclicCache.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/PreSynapticCyclicCache.o PreSynapticCyclicCache.cpp
+
+${OBJECTDIR}/PreSynapticEvent.o: PreSynapticEvent.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/PreSynapticEvent.o PreSynapticEvent.cpp
+
 ${OBJECTDIR}/STDPGroup.o: STDPGroup.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/STDPGroup.o STDPGroup.cpp
+
+${OBJECTDIR}/PreSynapticTimePoint.o: PreSynapticTimePoint.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/PreSynapticTimePoint.o PreSynapticTimePoint.cpp
 
 # Subprojects
 .build-subprojects:
@@ -78,7 +103,7 @@ ${OBJECTDIR}/STDPGroup.o: STDPGroup.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libNeuroPlasticity.so
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libNeuroPlasticity.${CND_DLIB_EXT}
 
 # Subprojects
 .clean-subprojects:

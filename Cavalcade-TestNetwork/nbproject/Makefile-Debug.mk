@@ -23,6 +23,7 @@ QMAKE=qmake
 
 # Macros
 CND_PLATFORM=GNU-Linux-x86
+CND_DLIB_EXT=so
 CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -51,7 +52,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-lpthread -lX11 -lglut -lGL -lGLU -lm -Wl,-rpath ../CavalCade/dist/Debug/GNU-Linux-x86 -L../CavalCade/dist/Debug/GNU-Linux-x86 -lCavalCade -Wl,-rpath ../CMarkup/dist/Debug/GNU-Linux-x86 -L../CMarkup/dist/Debug/GNU-Linux-x86 -lCMarkup -Wl,-rpath ../GenomeLoader/dist/Debug/GNU-Linux-x86 -L../GenomeLoader/dist/Debug/GNU-Linux-x86 -lGenomeLoader
+LDLIBSOPTIONS=-lpthread -lX11 -lglut -lGL -lGLU -lm -Wl,-rpath,../CavalCade/dist/Debug/GNU-Linux-x86 -L../CavalCade/dist/Debug/GNU-Linux-x86 -lCavalCade -Wl,-rpath,../CMarkup/dist/Debug/GNU-Linux-x86 -L../CMarkup/dist/Debug/GNU-Linux-x86 -lCMarkup -Wl,-rpath,../GenomeLoader/dist/Debug/GNU-Linux-x86 -L../GenomeLoader/dist/Debug/GNU-Linux-x86 -lGenomeLoader
 
 nbproject/qt-${CND_CONF}.mk: nbproject/qt-${CND_CONF}.pro FORCE
 	${QMAKE} VPATH=. -o qttmp-${CND_CONF}.mk nbproject/qt-${CND_CONF}.pro

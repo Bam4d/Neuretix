@@ -14,12 +14,19 @@ public:
     STDPNeuron(int,RGB);
     STDPNeuron(const STDPNeuron& orig);
     
+    void Stimulate_TW(axon*,double);
+    void Stimulate_TW(double);
+   
+    void Fire_TW();
+
+    void ResetChannels();
     
-   void Stimulate_TW(double);
-    
+    void OutputSTDPCache();
+
     virtual ~STDPNeuron();
+
     private:
-        
+        PreSynapticCyclicCache feedbackCache;
         LeakyIntegrator fatigue;
 
 

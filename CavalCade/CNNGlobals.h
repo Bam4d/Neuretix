@@ -14,6 +14,7 @@
 #include <cstring>
 #include <fstream>
 #include <sys/time.h>
+
 using namespace std;
 
 /* ascii code for the escape key */
@@ -85,6 +86,10 @@ public:
 
 #include "../CMarkup/Markup.h"
 
+
+#include "CyclicCacheEvent.h"
+#include "CyclicCacheTimePoint.h"
+#include "CyclicCache.h"
 #include "LeakyIntegrator.h"
 #include "axon.h"
 #include "axonList.h"
@@ -93,7 +98,6 @@ public:
 #include "ControlTimer.h"
 #include "axon_event.h"
 #include "TimePoint.h"
-#include "TemporalWindow.h"
 #include "CavalcadeMind.h"
 #include "SaveLoadCNN.h"
 

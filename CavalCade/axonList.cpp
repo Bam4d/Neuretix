@@ -10,7 +10,7 @@ int axonList::Count()
 	return numAxons;
 }
 
-void axonList::SetTW(TemporalWindow* _TW)
+void axonList::SetTW(CyclicCache* _TW)
 {
     axon * _current = Head;
 

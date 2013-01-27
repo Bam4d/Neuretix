@@ -8,11 +8,11 @@
 #ifndef AXON_EVENT_H
 #define	AXON_EVENT_H
 
-class axon_event
+class axon_event : public CyclicCacheEvent
 {
 public:
     axon* fireThis;
-    axon_event* next;
+    
     axon_event();
     ~axon_event();
     

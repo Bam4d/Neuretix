@@ -12,8 +12,8 @@ CND_DISTDIR=dist
 CND_BUILDDIR=build
 NBTMPDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libGenomeLoader.so
-OUTPUT_BASENAME=libGenomeLoader.so
+OUTPUT_PATH=${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libGenomeLoader.${CND_DLIB_EXT}
+OUTPUT_BASENAME=libGenomeLoader.${CND_DLIB_EXT}
 PACKAGE_TOP_DIR=libGenomeLoader.so/
 
 # Functions

@@ -22,6 +22,7 @@ AS=as
 
 # Macros
 CND_PLATFORM=GNU-Linux-x86
+CND_DLIB_EXT=so
 CND_CONF=Release
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -35,17 +36,25 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/TimePoint.o \
+	${OBJECTDIR}/CyclicCacheEvent.o \
+	${OBJECTDIR}/CyclicCacheTimePoint.o \
 	${OBJECTDIR}/group.o \
 	${OBJECTDIR}/axon_event.o \
 	${OBJECTDIR}/ControlTimer.o \
 	${OBJECTDIR}/neuron.o \
 	${OBJECTDIR}/axon.o \
-	${OBJECTDIR}/TemporalWindow.o \
+	${OBJECTDIR}/CyclicCache.o \
 	${OBJECTDIR}/axonList.o \
 	${OBJECTDIR}/CavalcadeMind.o \
 	${OBJECTDIR}/SaveLoadCNN.o \
 	${OBJECTDIR}/LeakyIntegrator.o
 
+# Test Directory
+TESTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tests
+
+# Test Files
+TESTFILES= \
+	${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCavalCade.${CND_DLIB_EXT}
 
 # C Compiler Flags
 CFLAGS=
@@ -65,16 +74,26 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCavalCade.so
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCavalCade.${CND_DLIB_EXT}
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCavalCade.so: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCavalCade.${CND_DLIB_EXT}: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -shared -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCavalCade.so -fPIC ${OBJECTFILES} ${LDLIBSOPTIONS} 
+	${LINK.cc} -shared -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCavalCade.${CND_DLIB_EXT} -fPIC ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
 ${OBJECTDIR}/TimePoint.o: TimePoint.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/TimePoint.o TimePoint.cpp
+
+${OBJECTDIR}/CyclicCacheEvent.o: CyclicCacheEvent.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/CyclicCacheEvent.o CyclicCacheEvent.cpp
+
+${OBJECTDIR}/CyclicCacheTimePoint.o: CyclicCacheTimePoint.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/CyclicCacheTimePoint.o CyclicCacheTimePoint.cpp
 
 ${OBJECTDIR}/group.o: group.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -101,10 +120,10 @@ ${OBJECTDIR}/axon.o: axon.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/axon.o axon.cpp
 
-${OBJECTDIR}/TemporalWindow.o: TemporalWindow.cpp 
+${OBJECTDIR}/CyclicCache.o: CyclicCache.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/TemporalWindow.o TemporalWindow.cpp
+	$(COMPILE.cc) -O2 -fPIC  -MMD -MP -MF $@.d -o ${OBJECTDIR}/CyclicCache.o CyclicCache.cpp
 
 ${OBJECTDIR}/axonList.o: axonList.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -129,10 +148,207 @@ ${OBJECTDIR}/LeakyIntegrator.o: LeakyIntegrator.cpp
 # Subprojects
 .build-subprojects:
 
+# Build Test Targets
+.build-tests-conf: .build-conf ${TESTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCavalCade.${CND_DLIB_EXT}: ${TESTDIR}/tests/CyclicCacheTestClass.o ${TESTDIR}/tests/CyclicCacheTestRunner.o ${OBJECTFILES:%.o=%_nomain.o}
+	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
+	${LINK.cc}   -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCavalCade.${CND_DLIB_EXT} $^ ${LDLIBSOPTIONS} 
+
+
+${TESTDIR}/tests/CyclicCacheTestClass.o: tests/CyclicCacheTestClass.cpp 
+	${MKDIR} -p ${TESTDIR}/tests
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${TESTDIR}/tests/CyclicCacheTestClass.o tests/CyclicCacheTestClass.cpp
+
+
+${TESTDIR}/tests/CyclicCacheTestRunner.o: tests/CyclicCacheTestRunner.cpp 
+	${MKDIR} -p ${TESTDIR}/tests
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${TESTDIR}/tests/CyclicCacheTestRunner.o tests/CyclicCacheTestRunner.cpp
+
+
+${OBJECTDIR}/TimePoint_nomain.o: ${OBJECTDIR}/TimePoint.o TimePoint.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/TimePoint.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} $@.d;\
+	    $(COMPILE.cc) -O2 -fPIC  -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/TimePoint_nomain.o TimePoint.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/TimePoint.o ${OBJECTDIR}/TimePoint_nomain.o;\
+	fi
+
+${OBJECTDIR}/CyclicCacheEvent_nomain.o: ${OBJECTDIR}/CyclicCacheEvent.o CyclicCacheEvent.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/CyclicCacheEvent.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} $@.d;\
+	    $(COMPILE.cc) -O2 -fPIC  -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/CyclicCacheEvent_nomain.o CyclicCacheEvent.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/CyclicCacheEvent.o ${OBJECTDIR}/CyclicCacheEvent_nomain.o;\
+	fi
+
+${OBJECTDIR}/CyclicCacheTimePoint_nomain.o: ${OBJECTDIR}/CyclicCacheTimePoint.o CyclicCacheTimePoint.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/CyclicCacheTimePoint.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} $@.d;\
+	    $(COMPILE.cc) -O2 -fPIC  -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/CyclicCacheTimePoint_nomain.o CyclicCacheTimePoint.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/CyclicCacheTimePoint.o ${OBJECTDIR}/CyclicCacheTimePoint_nomain.o;\
+	fi
+
+${OBJECTDIR}/group_nomain.o: ${OBJECTDIR}/group.o group.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/group.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} $@.d;\
+	    $(COMPILE.cc) -O2 -fPIC  -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/group_nomain.o group.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/group.o ${OBJECTDIR}/group_nomain.o;\
+	fi
+
+${OBJECTDIR}/axon_event_nomain.o: ${OBJECTDIR}/axon_event.o axon_event.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/axon_event.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} $@.d;\
+	    $(COMPILE.cc) -O2 -fPIC  -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/axon_event_nomain.o axon_event.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/axon_event.o ${OBJECTDIR}/axon_event_nomain.o;\
+	fi
+
+${OBJECTDIR}/ControlTimer_nomain.o: ${OBJECTDIR}/ControlTimer.o ControlTimer.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/ControlTimer.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} $@.d;\
+	    $(COMPILE.cc) -O2 -fPIC  -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/ControlTimer_nomain.o ControlTimer.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/ControlTimer.o ${OBJECTDIR}/ControlTimer_nomain.o;\
+	fi
+
+${OBJECTDIR}/neuron_nomain.o: ${OBJECTDIR}/neuron.o neuron.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/neuron.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} $@.d;\
+	    $(COMPILE.cc) -O2 -fPIC  -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/neuron_nomain.o neuron.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/neuron.o ${OBJECTDIR}/neuron_nomain.o;\
+	fi
+
+${OBJECTDIR}/axon_nomain.o: ${OBJECTDIR}/axon.o axon.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/axon.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} $@.d;\
+	    $(COMPILE.cc) -O2 -fPIC  -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/axon_nomain.o axon.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/axon.o ${OBJECTDIR}/axon_nomain.o;\
+	fi
+
+${OBJECTDIR}/CyclicCache_nomain.o: ${OBJECTDIR}/CyclicCache.o CyclicCache.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/CyclicCache.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} $@.d;\
+	    $(COMPILE.cc) -O2 -fPIC  -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/CyclicCache_nomain.o CyclicCache.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/CyclicCache.o ${OBJECTDIR}/CyclicCache_nomain.o;\
+	fi
+
+${OBJECTDIR}/axonList_nomain.o: ${OBJECTDIR}/axonList.o axonList.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/axonList.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} $@.d;\
+	    $(COMPILE.cc) -O2 -fPIC  -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/axonList_nomain.o axonList.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/axonList.o ${OBJECTDIR}/axonList_nomain.o;\
+	fi
+
+${OBJECTDIR}/CavalcadeMind_nomain.o: ${OBJECTDIR}/CavalcadeMind.o CavalcadeMind.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/CavalcadeMind.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} $@.d;\
+	    $(COMPILE.cc) -O2 -fPIC  -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/CavalcadeMind_nomain.o CavalcadeMind.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/CavalcadeMind.o ${OBJECTDIR}/CavalcadeMind_nomain.o;\
+	fi
+
+${OBJECTDIR}/SaveLoadCNN_nomain.o: ${OBJECTDIR}/SaveLoadCNN.o SaveLoadCNN.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/SaveLoadCNN.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} $@.d;\
+	    $(COMPILE.cc) -O2 -fPIC  -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/SaveLoadCNN_nomain.o SaveLoadCNN.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/SaveLoadCNN.o ${OBJECTDIR}/SaveLoadCNN_nomain.o;\
+	fi
+
+${OBJECTDIR}/LeakyIntegrator_nomain.o: ${OBJECTDIR}/LeakyIntegrator.o LeakyIntegrator.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/LeakyIntegrator.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} $@.d;\
+	    $(COMPILE.cc) -O2 -fPIC  -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/LeakyIntegrator_nomain.o LeakyIntegrator.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/LeakyIntegrator.o ${OBJECTDIR}/LeakyIntegrator_nomain.o;\
+	fi
+
+# Run Test Targets
+.test-conf:
+	@if [ "${TEST}" = "" ]; \
+	then  \
+	    ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCavalCade.${CND_DLIB_EXT} || true; \
+	else  \
+	    ./${TEST} || true; \
+	fi
+
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCavalCade.so
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCavalCade.${CND_DLIB_EXT}
 
 # Subprojects
 .clean-subprojects:

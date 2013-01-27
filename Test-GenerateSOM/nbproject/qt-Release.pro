@@ -6,6 +6,7 @@ TARGET = Test-GenerateSOM
 VERSION = 1.0.0
 CONFIG -= debug_and_release app_bundle lib_bundle
 CONFIG += release 
+PKGCONFIG +=
 QT = core gui
 SOURCES += main.cpp GLEngine.cpp
 HEADERS += globals.h GLEngine.h

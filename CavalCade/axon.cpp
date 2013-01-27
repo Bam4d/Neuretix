@@ -70,7 +70,7 @@ void axon::MoveCtrlPoints()
 
 }
 
-axon::axon(neuron * sourceNeuron, void (*destfunction)()) //when a neuron fires, it runs the function defined
+axon::axon(neuron * sourceNeuron, void (*destfunction)(axon*)) //when a neuron fires, it runs the function defined
 {
     externalmethod = destfunction; //assign this axon's external method pointer to the function passed as an argument
     destination = NULL; //destination neuron is null as fires external function
@@ -83,11 +83,11 @@ axon::axon(neuron * sourceNeuron, void (*destfunction)()) //when a neuron fires,
     next = NULL;
 }
 
-void axon::AcceptFire() //neuron has fired so axon needs to process this fire
+ void axon::AcceptFire() //neuron has fired so axon needs to process this fire
 {
     if(_TW != NULL)
     {
-        _TW->operator [](synaptic_delay)->Add(this);
+        ((TimePoint*)_TW->GetTimePointAtOffset(synaptic_delay))->Add(this);
     }
     else
     {   //time delay set here
@@ -100,7 +100,7 @@ void axon::AcceptFire() //neuron has fired so axon needs to process this fire
 void axon::Fire_TW()
 {
     if(externalmethod!=NULL)
-        externalmethod();
+        externalmethod(this);
     else destination -> Stimulate_TW(fire_magnitude); //simulate the destination neuron
 }
 
@@ -114,7 +114,7 @@ void axon::UpdateAxon()
 		if(synaptic_delay_counter <= 0)
 		{
 			synaptic_delay_counter = 0;
-                        if(externalmethod!=NULL) externalmethod();
+                        if(externalmethod!=NULL) externalmethod(this);
                         else destination -> Stimulate(fire_magnitude); //simulate the destination neuron
 			tofire = false; //doesnt need to count down synaptic delay or fire anymore
 			isFiring = 2;

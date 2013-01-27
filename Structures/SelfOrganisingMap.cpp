@@ -28,12 +28,12 @@ void SelfOrganisingMap::SOM2D(ClusterMap* clusterMap,int dimx,int dimy, float se
     
     //
     for(int _firstPass = 0; _firstPass<dimy*dimx; _firstPass++)
-        for(int _secondPass = 0; _secondPass<dimx*dimx; _secondPass++)
+        for(int _secondPass = 0; _secondPass<dimy*dimx; _secondPass++)
         {
             
             if(inhibitoryDistance>CalculateDistance(clusterMap->clusters[0]->Neuron[_firstPass]->position,clusterMap->clusters[0]->Neuron[_secondPass]->position) && _firstPass!=_secondPass)
             {
-                clusterMap->Axons.Add(new axon(clusterMap->clusters[0]->Neuron[_firstPass],clusterMap->clusters[0]->Neuron[_secondPass],(float)(rand()%100)/600.0f,rand()%40));
+                clusterMap->Axons.Add(new axon(clusterMap->clusters[0]->Neuron[_firstPass],clusterMap->clusters[0]->Neuron[_secondPass],(float)(rand()%100)/600.0f,rand()%20));
             }
         }
     
@@ -45,8 +45,22 @@ float SelfOrganisingMap::CalculateDistance(PlotPoint _a, PlotPoint _b)
 }
 
 
-void SelfOrganisingMap::SOM1D(ClusterMap* clusterMap,int dimx,float separation)
+void SelfOrganisingMap::SOM1D(ClusterMap* clusterMap,int dimx,float separation,float inhibitoryDistance)
 {
-        //clusterMap->clusters.push_back(new group(dimx,0,RGB(1,0,0)));
-        //clusterMap->clusters.back()->Line(separation,PlotPoint(0,0,x*separation-dimx*separation/2), 1);
+    STDPGroup* _newGroup = new STDPGroup();
+    _newGroup->Init(dimx,0,RGB(1,0,0));
+
+    clusterMap->clusters.push_back(_newGroup);
+    clusterMap->clusters.back()->Line(separation,PlotPoint(0,0,dimx*separation/2), 1);
+    
+    
+    for(int _firstPass = 0; _firstPass<dimx; _firstPass++)
+        for(int _secondPass = 0; _secondPass<dimx; _secondPass++)
+        {
+            
+            if(inhibitoryDistance>CalculateDistance(clusterMap->clusters[0]->Neuron[_firstPass]->position,clusterMap->clusters[0]->Neuron[_secondPass]->position) && _firstPass!=_secondPass)
+            {
+                clusterMap->Axons.Add(new axon(clusterMap->clusters[0]->Neuron[_firstPass],clusterMap->clusters[0]->Neuron[_secondPass],-0.3f,1));
+            }
+        }
 }
