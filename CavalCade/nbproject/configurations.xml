@@ -73,11 +73,18 @@
       <compileType>
         <cTool>
           <architecture>2</architecture>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
         </cTool>
         <ccTool>
           <architecture>2</architecture>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
         </ccTool>
         <linkerTool>
+          <output>${TESTDIR}/TestFiles/f2</output>
           <linkerLibItems>
             <linkerLibProjectItem>
               <makeArtifact PL="../CMarkup"
@@ -92,6 +99,7 @@
               </makeArtifact>
             </linkerLibProjectItem>
             <linkerLibStdlibItem>PosixThreads</linkerLibStdlibItem>
+            <linkerLibStdlibItem>CppUnit</linkerLibStdlibItem>
           </linkerLibItems>
         </linkerTool>
         <requiredProjects>
@@ -130,24 +138,6 @@
             <linkerLibStdlibItem>CppUnit</linkerLibStdlibItem>
             <linkerLibStdlibItem>CppUnit</linkerLibStdlibItem>
             <linkerLibStdlibItem>CppUnit</linkerLibStdlibItem>
-            <linkerLibStdlibItem>CppUnit</linkerLibStdlibItem>
-          </linkerLibItems>
-        </linkerTool>
-      </folder>
-      <folder path="TestFiles/f2">
-        <cTool>
-          <incDir>
-            <pElem>.</pElem>
-          </incDir>
-        </cTool>
-        <ccTool>
-          <incDir>
-            <pElem>.</pElem>
-          </incDir>
-        </ccTool>
-        <linkerTool>
-          <output>${TESTDIR}/TestFiles/f2</output>
-          <linkerLibItems>
             <linkerLibStdlibItem>CppUnit</linkerLibStdlibItem>
           </linkerLibItems>
         </linkerTool>
