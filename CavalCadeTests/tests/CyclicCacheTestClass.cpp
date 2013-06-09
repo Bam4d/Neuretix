@@ -6,7 +6,7 @@
  */
 
 #include "CyclicCacheTestClass.h"
-#include "CyclicCache.h"
+#include "../../CavalCade/CyclicCache.h"
 
 
 CPPUNIT_TEST_SUITE_REGISTRATION(CyclicCacheTestClass);

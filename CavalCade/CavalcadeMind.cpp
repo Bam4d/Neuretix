@@ -99,22 +99,13 @@ void CavalcadeMind::iterate_TW()
     while(_t_Window->CurrentTimePoint->num_events>num_firedaxons)
     {
         fire->fireThis->Fire_TW();
-        //////////////////////// record the spike
-//        if(CurTime>4000 && CurTime<5000 && fire->fireThis->ID<200)
-//        {
-//            sprintf(databuf,"%d\t%d\n",CurTime,fire->fireThis->ID);
-//             (*SimulationController[0].DataOut) << databuf;
-//        }
-        /////////////////////////
+
         fire = (axon_event*)fire->next;
         num_firedaxons++;
     }
     
    _t_Window->Cycle();
-
-//    for(int l_c = 0; l_c<Cluster.size(); l_c++) //update all the groups of neurons
-//            Cluster[l_c]->UpdateGroup();
-
+   
     if(_cycleCallback!=NULL) _cycleCallback(this);
     CurTime++; //iterate the millisecond counter
 
@@ -190,6 +181,7 @@ int CavalcadeMind::StartMindThread_TW(int netTimer, bool render, void (*cycleCal
 
 int CavalcadeMind::StartMindThread_TW(int netTimer, bool render)
 {
+    _cycleCallback = NULL;
     net_timer = netTimer;
     RunNetwork = true;
     if(render) RenderGraphics = true;

@@ -53,7 +53,7 @@
                             WD="../CMarkup"
                             BC="${MAKE}  -f Makefile CONF=Debug"
                             CC="${MAKE}  -f Makefile CONF=Debug clean"
-                            OP="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCMarkup.so">
+                            OP="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCMarkup.${CND_DLIB_EXT}">
               </makeArtifact>
             </linkerLibProjectItem>
             <linkerLibProjectItem>
@@ -65,19 +65,7 @@
                             WD="../CavalCade"
                             BC="${MAKE}  -f Makefile CONF=Debug"
                             CC="${MAKE}  -f Makefile CONF=Debug clean"
-                            OP="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCavalCade.so">
-              </makeArtifact>
-            </linkerLibProjectItem>
-            <linkerLibProjectItem>
-              <makeArtifact PL="../NeuroPlasticity"
-                            CT="2"
-                            CN="Debug"
-                            AC="true"
-                            BL="true"
-                            WD="../NeuroPlasticity"
-                            BC="${MAKE}  -f Makefile CONF=Debug"
-                            CC="${MAKE}  -f Makefile CONF=Debug clean"
-                            OP="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libNeuroPlasticity.so">
+                            OP="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCavalCade.${CND_DLIB_EXT}">
               </makeArtifact>
             </linkerLibProjectItem>
             <linkerLibProjectItem>
@@ -89,7 +77,19 @@
                             WD="../GenomeLoader"
                             BC="${MAKE}  -f Makefile CONF=Debug"
                             CC="${MAKE}  -f Makefile CONF=Debug clean"
-                            OP="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libGenomeLoader.so">
+                            OP="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libGenomeLoader.${CND_DLIB_EXT}">
+              </makeArtifact>
+            </linkerLibProjectItem>
+            <linkerLibProjectItem>
+              <makeArtifact PL="../NeuroPlasticity"
+                            CT="2"
+                            CN="Debug"
+                            AC="true"
+                            BL="true"
+                            WD="../NeuroPlasticity"
+                            BC="${MAKE}  -f Makefile CONF=Debug"
+                            CC="${MAKE}  -f Makefile CONF=Debug clean"
+                            OP="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libNeuroPlasticity.${CND_DLIB_EXT}">
               </makeArtifact>
             </linkerLibProjectItem>
             <linkerLibProjectItem>
@@ -101,63 +101,11 @@
                             WD="../Structures"
                             BC="${MAKE}  -f Makefile CONF=Debug"
                             CC="${MAKE}  -f Makefile CONF=Debug clean"
-                            OP="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libStructures.so">
+                            OP="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libStructures.${CND_DLIB_EXT}">
               </makeArtifact>
             </linkerLibProjectItem>
           </linkerLibItems>
         </linkerTool>
-        <requiredProjects>
-          <makeArtifact PL="../CMarkup"
-                        CT="2"
-                        CN="Debug"
-                        AC="true"
-                        BL="true"
-                        WD="../CMarkup"
-                        BC="${MAKE}  -f Makefile CONF=Debug"
-                        CC="${MAKE}  -f Makefile CONF=Debug clean"
-                        OP="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCMarkup.so">
-          </makeArtifact>
-          <makeArtifact PL="../CavalCade"
-                        CT="2"
-                        CN="Debug"
-                        AC="true"
-                        BL="true"
-                        WD="../CavalCade"
-                        BC="${MAKE}  -f Makefile CONF=Debug"
-                        CC="${MAKE}  -f Makefile CONF=Debug clean"
-                        OP="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libCavalCade.so">
-          </makeArtifact>
-          <makeArtifact PL="../NeuroPlasticity"
-                        CT="2"
-                        CN="Debug"
-                        AC="true"
-                        BL="true"
-                        WD="../NeuroPlasticity"
-                        BC="${MAKE}  -f Makefile CONF=Debug"
-                        CC="${MAKE}  -f Makefile CONF=Debug clean"
-                        OP="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libNeuroPlasticity.so">
-          </makeArtifact>
-          <makeArtifact PL="../GenomeLoader"
-                        CT="2"
-                        CN="Debug"
-                        AC="true"
-                        BL="true"
-                        WD="../GenomeLoader"
-                        BC="${MAKE}  -f Makefile CONF=Debug"
-                        CC="${MAKE}  -f Makefile CONF=Debug clean"
-                        OP="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libGenomeLoader.so">
-          </makeArtifact>
-          <makeArtifact PL="../Structures"
-                        CT="2"
-                        CN="Debug"
-                        AC="true"
-                        BL="true"
-                        WD="../Structures"
-                        BC="${MAKE}  -f Makefile CONF=Debug"
-                        CC="${MAKE}  -f Makefile CONF=Debug clean"
-                        OP="${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libStructures.so">
-          </makeArtifact>
-        </requiredProjects>
       </compileType>
     </conf>
     <conf name="Release" type="4">

@@ -9,7 +9,7 @@
 #define	CYCLICCACHETESTCLASS_H
 
 #include <cppunit/extensions/HelperMacros.h>
-#include "CNNGlobals.h"
+#include "../../CavalCade/CNNGlobals.h"
 
 class CyclicCacheTestClass : public CPPUNIT_NS::TestFixture {
     CPPUNIT_TEST_SUITE(CyclicCacheTestClass);

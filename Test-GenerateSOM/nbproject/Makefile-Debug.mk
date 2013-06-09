@@ -52,7 +52,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-lpthread -lX11 -lglut -lGL -lGLU -lm -Wl,-rpath,../CMarkup/dist/Debug/GNU-Linux-x86 -L../CMarkup/dist/Debug/GNU-Linux-x86 -lCMarkup -Wl,-rpath,../CavalCade/dist/Debug/GNU-Linux-x86 -L../CavalCade/dist/Debug/GNU-Linux-x86 -lCavalCade -Wl,-rpath,../NeuroPlasticity/dist/Debug/GNU-Linux-x86 -L../NeuroPlasticity/dist/Debug/GNU-Linux-x86 -lNeuroPlasticity -Wl,-rpath,../GenomeLoader/dist/Debug/GNU-Linux-x86 -L../GenomeLoader/dist/Debug/GNU-Linux-x86 -lGenomeLoader -Wl,-rpath,../Structures/dist/Debug/GNU-Linux-x86 -L../Structures/dist/Debug/GNU-Linux-x86 -lStructures
+LDLIBSOPTIONS=-lpthread -lX11 -lglut -lGL -lGLU -lm -Wl,-rpath,../CMarkup/dist/Debug/GNU-Linux-x86 -L../CMarkup/dist/Debug/GNU-Linux-x86 -lCMarkup -Wl,-rpath,../CavalCade/dist/Debug/GNU-Linux-x86 -L../CavalCade/dist/Debug/GNU-Linux-x86 -lCavalCade -Wl,-rpath,../GenomeLoader/dist/Debug/GNU-Linux-x86 -L../GenomeLoader/dist/Debug/GNU-Linux-x86 -lGenomeLoader -Wl,-rpath,../NeuroPlasticity/dist/Debug/GNU-Linux-x86 -L../NeuroPlasticity/dist/Debug/GNU-Linux-x86 -lNeuroPlasticity -Wl,-rpath,../Structures/dist/Debug/GNU-Linux-x86 -L../Structures/dist/Debug/GNU-Linux-x86 -lStructures
 
 nbproject/qt-${CND_CONF}.mk: nbproject/qt-${CND_CONF}.pro FORCE
 	${QMAKE} VPATH=. -o qttmp-${CND_CONF}.mk nbproject/qt-${CND_CONF}.pro
@@ -69,11 +69,6 @@ ${CND_BUILDDIR}/Debug/%.o: nbproject/qt-${CND_CONF}.mk
 
 # Subprojects
 .build-subprojects:
-	cd ../CMarkup && ${MAKE}  -f Makefile CONF=Debug
-	cd ../CavalCade && ${MAKE}  -f Makefile CONF=Debug
-	cd ../NeuroPlasticity && ${MAKE}  -f Makefile CONF=Debug
-	cd ../GenomeLoader && ${MAKE}  -f Makefile CONF=Debug
-	cd ../Structures && ${MAKE}  -f Makefile CONF=Debug
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS} nbproject/qt-${CND_CONF}.mk
@@ -81,8 +76,3 @@ ${CND_BUILDDIR}/Debug/%.o: nbproject/qt-${CND_CONF}.mk
 
 # Subprojects
 .clean-subprojects:
-	cd ../CMarkup && ${MAKE}  -f Makefile CONF=Debug clean
-	cd ../CavalCade && ${MAKE}  -f Makefile CONF=Debug clean
-	cd ../NeuroPlasticity && ${MAKE}  -f Makefile CONF=Debug clean
-	cd ../GenomeLoader && ${MAKE}  -f Makefile CONF=Debug clean
-	cd ../Structures && ${MAKE}  -f Makefile CONF=Debug clean

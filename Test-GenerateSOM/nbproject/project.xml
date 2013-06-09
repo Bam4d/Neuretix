@@ -8,13 +8,7 @@
             <cpp-extensions>cpp</cpp-extensions>
             <header-extensions>h</header-extensions>
             <sourceEncoding>UTF-8</sourceEncoding>
-            <make-dep-projects>
-                <make-dep-project>../GenomeLoader</make-dep-project>
-                <make-dep-project>../NeuroPlasticity</make-dep-project>
-                <make-dep-project>../Structures</make-dep-project>
-                <make-dep-project>../CavalCade</make-dep-project>
-                <make-dep-project>../CMarkup</make-dep-project>
-            </make-dep-projects>
+            <make-dep-projects/>
             <sourceRootList/>
             <confList>
                 <confElem>

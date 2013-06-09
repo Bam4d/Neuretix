@@ -45,22 +45,24 @@ float SelfOrganisingMap::CalculateDistance(PlotPoint _a, PlotPoint _b)
 }
 
 
-void SelfOrganisingMap::SOM1D(ClusterMap* clusterMap,int dimx,float separation,float inhibitoryDistance)
+STDPGroup* SelfOrganisingMap::SOM1D(ClusterMap* clusterMap,int numNeurons, float separation, PlotPoint position,float inhibitoryDistance)
 {
     STDPGroup* _newGroup = new STDPGroup();
-    _newGroup->Init(dimx,0,RGB(1,0,0));
+    _newGroup->Init(numNeurons,0,RGB(255,0,0));
 
     clusterMap->clusters.push_back(_newGroup);
-    clusterMap->clusters.back()->Line(separation,PlotPoint(0,0,dimx*separation/2), 1);
+    clusterMap->clusters.back()->Line(separation,position, 0);
     
     
-    for(int _firstPass = 0; _firstPass<dimx; _firstPass++)
-        for(int _secondPass = 0; _secondPass<dimx; _secondPass++)
+    for(int _firstPass = 0; _firstPass<numNeurons; _firstPass++)
+        for(int _secondPass = 0; _secondPass<numNeurons; _secondPass++)
         {
             
-            if(inhibitoryDistance>CalculateDistance(clusterMap->clusters[0]->Neuron[_firstPass]->position,clusterMap->clusters[0]->Neuron[_secondPass]->position) && _firstPass!=_secondPass)
+            if(inhibitoryDistance>CalculateDistance(_newGroup->Neuron[_firstPass]->position,_newGroup->Neuron[_secondPass]->position) && _firstPass!=_secondPass)
             {
-                clusterMap->Axons.Add(new axon(clusterMap->clusters[0]->Neuron[_firstPass],clusterMap->clusters[0]->Neuron[_secondPass],-0.3f,1));
+                clusterMap->Axons.Add(new axon(_newGroup->Neuron[_firstPass],_newGroup->Neuron[_secondPass],-0.3f,1));
             }
         }
+    
+    return _newGroup;
 }

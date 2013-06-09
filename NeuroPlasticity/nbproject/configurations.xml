@@ -46,6 +46,9 @@
         <compilerSet>default</compilerSet>
       </toolsSet>
       <compileType>
+        <ccTool>
+          <architecture>2</architecture>
+        </ccTool>
         <linkerTool>
           <linkerLibItems>
             <linkerLibProjectItem>

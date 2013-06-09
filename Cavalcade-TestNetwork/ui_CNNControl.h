@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'CNNControl.ui'
 **
-** Created: Sat Jul 7 19:05:39 2012
+** Created: Sun Jan 27 15:16:47 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
