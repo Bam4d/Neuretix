@@ -21,12 +21,9 @@ class PlotPoint;
 class Mind {
 public:
     AxonList axons; //store the axons as a pointer array
-    std::vector<Group*> Cluster; //vector containing neuron clusters
+    std::vector<Group*> cluster; //vector containing neuron clusters
 
     Mind();
-    //int Save(string);
-    //int Load(string);
-
 
     void iterate();
     void iterate_TW();

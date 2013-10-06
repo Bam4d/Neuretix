@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>GenomeLoader</name>
+	<name>OpenGLRendering</name>
 	<comment></comment>
 	<projects>
-		<project>Neuretix</project>
+		<project>Genome</project>
 		<project>NeuroPlasticity</project>
+		<project>Structures</project>
+		<project>Neuretix</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

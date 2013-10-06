@@ -33,7 +33,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CavalCade}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Neuretix}&quot;"/>
 								</option>
-								<option id="gnu.c.compiler.option.misc.pic.384292546" superClass="gnu.c.compiler.option.misc.pic" value="true" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.misc.pic.384292546" name="Position Independent Code (-fPIC)" superClass="gnu.c.compiler.option.misc.pic" value="true" valueType="boolean"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.357926267" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.21712980" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
@@ -42,7 +42,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CavalCade}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Neuretix}&quot;"/>
 								</option>
-								<option id="gnu.cpp.compiler.option.other.pic.1238920623" superClass="gnu.cpp.compiler.option.other.pic" value="true" valueType="boolean"/>
+								<option id="gnu.cpp.compiler.option.other.pic.1238920623" name="Position Independent Code (-fPIC)" superClass="gnu.cpp.compiler.option.other.pic" value="true" valueType="boolean"/>
+								<option id="gnu.cpp.compiler.option.optimization.level.203288740" superClass="gnu.cpp.compiler.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.647189465" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.2110828580" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">

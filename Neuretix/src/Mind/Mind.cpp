@@ -112,8 +112,8 @@ void Mind::iterate_TW()
 
 void Mind::iterate()
 {
-    for(int l_c = 0; l_c<Cluster.size(); l_c++) //update all the groups of neurons
-            ((Group*)Cluster[l_c])->UpdateGroup();
+    for(int l_c = 0; l_c<cluster.size(); l_c++) //update all the groups of neurons
+            ((Group*)cluster[l_c])->UpdateGroup();
 
     axon2Update = axons.Head; //make rendering as efficient as possible
 
@@ -176,14 +176,14 @@ void Mind::Clear()
     //clear linked list but don't deallocate memory as this is done by genome layer
     axons.Clear();
     //clear vector but don't deallocate memory
-    Cluster.clear();
+    cluster.clear();
 }
 
 void Mind::MoveClusters(PlotPoint* newPosition)
 {
-    for(int clus = 0; clus<Cluster.size(); clus++) {
-    	Group* cluster = Cluster[clus];
-    	cluster->Move(cluster->groupPos+*newPosition);//  move the Clusters by a set amount newPosition
+    for(int clus = 0; clus<cluster.size(); clus++) {
+    	Group* cluster_p = cluster[clus];
+    	cluster_p->Move(cluster_p->groupPos+*newPosition);//  move the Clusters by a set amount newPosition
     }
 
 }

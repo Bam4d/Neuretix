@@ -157,7 +157,7 @@ int GAEngine::AddClusterMapToMind(Mind* _mind, ClusterMap* _ClusterMap)
     for(int n_c = 0; n_c<_ClusterMap->clusters.size(); n_c++)
     {
         //make sure the ID numbers of clusters are unique in a mind
-        _ClusterMap->clusters[n_c]->id = _mind->Cluster.size();
+        _ClusterMap->clusters[n_c]->id = _mind->cluster.size();
         
         //change the parent group ID for the neurons in this cluster
         for(int n_n = 0; n_n<_ClusterMap->clusters[n_c]->neurons.size(); n_n++)
@@ -167,7 +167,7 @@ int GAEngine::AddClusterMapToMind(Mind* _mind, ClusterMap* _ClusterMap)
             _ClusterMap->clusters[n_c]->neurons[n_n]->ParentGroupID = _ClusterMap->clusters[n_c]->id;
         }
 
-        _mind->Cluster.push_back(_ClusterMap->clusters[n_c]);
+        _mind->cluster.push_back(_ClusterMap->clusters[n_c]);
     }
 
     AxonList::Join(&_mind->axons,&_ClusterMap->axons);

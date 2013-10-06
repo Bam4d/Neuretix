@@ -11,7 +11,7 @@
 #include <string>
 #include <vector>
 
-#include "../../../Neuretix/src/inc/Rendering.h"
+#include "../../../OpenGLRendering/src/inc/Rendering.h"
 
 #include "../inc/ClusterMapLink.h"
 #include "../inc/ClusterMap.h"

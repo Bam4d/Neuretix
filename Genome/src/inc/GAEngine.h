@@ -5,9 +5,12 @@
  * Created on 23 May 2012 1:45
  */
 
+
+
 #ifndef GAENGINE_H
 #define	GAENGINE_H
 
+class Neuron;
 class Group;
 class AxonList;
 class ClusterMap;

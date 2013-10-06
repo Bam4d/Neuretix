@@ -7,7 +7,7 @@
 #include <vector>
 #include <math.h>
 
-#include "Rendering.h"
+#include "../../../OpenGLRendering/src/inc/Rendering.h"
 #include "Neuron.h"
 
 #define TWOPI (M_PI*2)

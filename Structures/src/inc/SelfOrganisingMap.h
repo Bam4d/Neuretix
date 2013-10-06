@@ -11,7 +11,7 @@
 class ClusterMap;
 class STDPGroup;
 
-#include "../../../Neuretix/src/inc/Rendering.h"
+#include "../../../OpenGLRendering/src/inc/Rendering.h"
 
 class SelfOrganisingMap {
 public:

@@ -7,7 +7,7 @@
  * project includes
  */
 #include "../inc/CavalcadeGlobals.h"
-#include "../inc/Rendering.h"
+#include "../../../OpenGLRendering/src/inc/Rendering.h"
 #include "../inc/Axon.h"
 #include "../inc/LeakyIntegrator.h"
 #include "../inc/Mind.h"

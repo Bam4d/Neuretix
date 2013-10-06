@@ -8,7 +8,7 @@
 
 #include "../../../Neuretix/src/inc/Axon.h"
 #include "../../../NeuroPlasticity/src/inc/STDPGroup.h"
-#include "../../../GenomeLoader/src/inc/ClusterMap.h"
+#include "../../../Genome/src/inc/ClusterMap.h"
 #include "../inc/SelfOrganisingMap.h"
 
 /**

@@ -4,7 +4,7 @@
 
 #include <cstdlib>
 #include <vector>
-#include "Rendering.h"
+#include "../../../OpenGLRendering/src/inc/Rendering.h"
 #include "LeakyIntegrator.h"
 
 class Mind;

@@ -6,8 +6,10 @@
 				<externalSettings>
 					<externalSetting>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/GenomeLoader"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/Genome"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/GenomeLoader/Default"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="GenomeLoader" srcPrefixMapping="" srcRootPath=""/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/Genome/Default"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="Genome" srcPrefixMapping="" srcRootPath=""/>
 					</externalSetting>
 				</externalSettings>
 				<extensions>
@@ -20,7 +22,7 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactExtension="so" artifactName="GenomeLoader" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.sharedLib" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.sharedLib" description="" id="0.1222237622" name="Default" parent="org.eclipse.cdt.build.core.prefbase.cfg">
+				<configuration artifactExtension="so" artifactName="Genome" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.sharedLib" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.sharedLib" description="" id="0.1222237622" name="Default" parent="org.eclipse.cdt.build.core.prefbase.cfg">
 					<folderInfo id="0.1222237622." name="/" resourcePath="">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.base.911514365" name="Cross GCC" nonInternalBuilderId="cdt.managedbuild.builder.gnu.cross" superClass="cdt.managedbuild.toolchain.gnu.cross.base">
 							<option id="cdt.managedbuild.option.gnu.cross.prefix.875004863" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix"/>
@@ -30,10 +32,9 @@
 							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.724767833" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
 								<option id="gnu.c.compiler.option.include.paths.1679761479" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/NeuroPlasticity}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CavalCade}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Neuretix}&quot;"/>
 								</option>
-								<option id="gnu.c.compiler.option.misc.pic.1390821465" superClass="gnu.c.compiler.option.misc.pic" value="true" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.misc.pic.1390821465" name="Position Independent Code (-fPIC)" superClass="gnu.c.compiler.option.misc.pic" value="true" valueType="boolean"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.20381006" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1049988462" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
@@ -42,7 +43,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CavalCade}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Neuretix}&quot;"/>
 								</option>
-								<option id="gnu.cpp.compiler.option.other.pic.1115117261" superClass="gnu.cpp.compiler.option.other.pic" value="true" valueType="boolean"/>
+								<option id="gnu.cpp.compiler.option.other.pic.1115117261" name="Position Independent Code (-fPIC)" superClass="gnu.cpp.compiler.option.other.pic" value="true" valueType="boolean"/>
+								<option id="gnu.cpp.compiler.option.optimization.level.169285780" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.935389494" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.773978310" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
@@ -51,12 +53,12 @@
 							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.356033926" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker">
 								<option id="gnu.cpp.link.option.paths.818541577" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/NeuroPlasticity/Default}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CavalCade/Default}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Neuretix/Default}&quot;"/>
 								</option>
 								<option id="gnu.cpp.link.option.libs.452958473" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="NeuroPlasticity"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="Neuretix"/>
+									<listOptionValue builtIn="false" value="NeuroPlasticity"/>
+									<listOptionValue builtIn="false" value="uuid"/>
+									<listOptionValue builtIn="false" value="Neuretix"/>
 								</option>
 								<option defaultValue="true" id="gnu.cpp.link.option.shared.1285330352" name="Shared (-shared)" superClass="gnu.cpp.link.option.shared" valueType="boolean"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.677868653" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
@@ -68,7 +70,6 @@
 							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.1338394970" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
 								<option id="gnu.both.asm.option.include.paths.1555284838" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/NeuroPlasticity}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/CavalCade}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Neuretix}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.955992021" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
